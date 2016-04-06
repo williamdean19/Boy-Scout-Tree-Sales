@@ -12,14 +12,8 @@
 // specify the package
 package userinterface;
 
-// system imports
-import java.util.Properties;
-import java.util.Vector;
-import java.util.EventObject;
 import javafx.scene.Group;
 
-// project imports
-import common.StringList;
 import impresario.IView;
 import impresario.IModel;
 import impresario.IControl;
@@ -55,6 +49,7 @@ public abstract class View extends Group
 	
 	// Allow models to register for state updates
 	//----------------------------------------------------------
+	@Override
 	public void subscribe(String key,  IModel subscriber)
 	{
 		myRegistry.subscribe(key, subscriber);
@@ -63,6 +58,7 @@ public abstract class View extends Group
 		
 	// Allow models to unregister for state updates
 	//----------------------------------------------------------
+	@Override
 	public void unSubscribe(String key, IModel subscriber)
 	{
 		myRegistry.unSubscribe(key, subscriber);

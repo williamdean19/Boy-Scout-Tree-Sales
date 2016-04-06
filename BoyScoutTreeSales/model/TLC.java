@@ -13,15 +13,11 @@ import javafx.scene.Scene;
 
 //project imports
 import impresario.IModel;
-import impresario.ISlideShow;
 import impresario.IView;
 import impresario.ModelRegistry;
-import exception.InvalidPrimaryKeyException;
-import exception.PasswordMismatchException;
 import event.Event;
 import userinterface.MainStageContainer;
 import userinterface.View;
-import userinterface.ViewFactory;
 import userinterface.WindowPosition;
 import userinterface.TLCView;
 
@@ -76,6 +72,7 @@ public class TLC implements IView,IModel
 	
 	}
 
+	@Override
 	public void stateChangeRequest(String key, Object value)
 	{
 		
@@ -85,6 +82,7 @@ public class TLC implements IView,IModel
 
 
 	//----------------------------------------------------------
+		@Override
 		public Object getState(String key)
 		{
 			return null;
@@ -92,6 +90,7 @@ public class TLC implements IView,IModel
 
 	/** Called via the IView relationship */
 	//----------------------------------------------------------
+	@Override
 	public void updateState(String key, Object value)
 	{
 		// DEBUG System.out.println("Teller.updateState: key: " + key);
@@ -126,7 +125,7 @@ public class TLC implements IView,IModel
 	//CREATE AND SHOW TREE LOT COORDINATOR VIEW----------------------------
 	private void createAndShowTLCView()
 	{
-		Scene currentScene = (Scene)myViews.get("TLC");
+		Scene currentScene = myViews.get("TLC");
 
 		if (currentScene == null)
 		{
@@ -165,6 +164,7 @@ public class TLC implements IView,IModel
 
 	/** Register objects to receive state updates. */
 	//----------------------------------------------------------
+	@Override
 	public void subscribe(String key, IView subscriber)
 	{
 		// DEBUG: System.out.println("Cager[" + myTableName + "].subscribe");
@@ -174,6 +174,7 @@ public class TLC implements IView,IModel
 
 	/** Unregister previously registered objects. */
 	//----------------------------------------------------------
+	@Override
 	public void unSubscribe(String key, IView subscriber)
 	{
 		// DEBUG: System.out.println("Cager.unSubscribe");

@@ -2,35 +2,20 @@
 //specify the package
 package userinterface;
 
-//system imports
-import java.text.NumberFormat;
-import java.util.Properties;
-
-
 import javafx.event.Event;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import javafx.stage.Stage;
-
-//project imports
-import impresario.IModel;
-
 import model.TLC;
 
 /** The class containing the TLCView */
@@ -205,6 +190,7 @@ public class TLCView extends View
 	//----------------------------------------------------------
 	
 	//---------------------------------------------------------
+	@Override
 	public void updateState(String key, Object value)
 	{
 		// STEP 6: Be sure to finish the end of the 'perturbation'

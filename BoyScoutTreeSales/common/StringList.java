@@ -93,6 +93,7 @@ public class StringList
 	
 	/** Return the string version of our string(?) */
  	//----------------------------------------------------------
+	@Override
 	public String toString()
 	{
 		return myString;
@@ -103,6 +104,7 @@ public class StringList
 	 * @return	boolean value indicating whether there are more elements in the list (or not)
 	 */
 	//----------------------------------------------------------
+	@Override
 	public boolean hasMoreElements()
 	{
 		if(myString != null)
@@ -117,7 +119,8 @@ public class StringList
 	 * @return	Object indicating the next element retrieved from list
 	 */
 	//----------------------------------------------------------
-    public Object nextElement()
+    @Override
+	public Object nextElement()
 	{
 		myToken = null;
 
