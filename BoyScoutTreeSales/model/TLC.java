@@ -3,27 +3,34 @@
 package model;
 
 //system imports
+import java.io.IOException;
 import java.util.Hashtable;
-
-
+import java.util.Locale;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+//import helloi18n.Main;
 //project imports
 import impresario.IModel;
-import impresario.ISlideShow;
 import impresario.IView;
 import impresario.ModelRegistry;
-import exception.InvalidPrimaryKeyException;
-import exception.PasswordMismatchException;
 import event.Event;
+import userinterface.AddScoutController;
 import userinterface.MainStageContainer;
+import userinterface.ManageScoutsController;
+import userinterface.UpdateScoutController;
+import userinterface.UpdateTreeTypeController;
 import userinterface.View;
-import userinterface.ViewFactory;
 import userinterface.WindowPosition;
 import userinterface.TLCView;
+import userinterface.manageInventoryView;
+import userinterface.manageTreesView;
 
 
 /** The class containing the Tree Lot Coordinator(TLC)
@@ -43,9 +50,16 @@ public class TLC implements IView,IModel
 	// GUI Components
 	private Hashtable<String, Scene> myViews;
 	private Stage	  	myStage;
+	private AnchorPane mainLayout;
 
 	private String loginErrorMessage = "";
 	private String transactionErrorMessage = "";
+	
+	// Set default language and country
+	String lang = "en"; //en or fr for English/French
+	String country = "EN";//EN or FR for English/French
+	public Locale l = new Locale(lang, country);
+	public ResourceBundle r = ResourceBundle.getBundle("resources/Bundle", l);
 
 	// constructor for this class
 	//----------------------------------------------------------
@@ -76,6 +90,7 @@ public class TLC implements IView,IModel
 	
 	}
 
+	@Override
 	public void stateChangeRequest(String key, Object value)
 	{
 		
@@ -85,6 +100,7 @@ public class TLC implements IView,IModel
 
 
 	//----------------------------------------------------------
+		@Override
 		public Object getState(String key)
 		{
 			return null;
@@ -92,6 +108,7 @@ public class TLC implements IView,IModel
 
 	/** Called via the IView relationship */
 	//----------------------------------------------------------
+	@Override
 	public void updateState(String key, Object value)
 	{
 		// DEBUG System.out.println("Teller.updateState: key: " + key);
@@ -99,7 +116,79 @@ public class TLC implements IView,IModel
 		stateChangeRequest(key, value);
 	}
 
+	
+	public void addScout() throws IOException
+	{
+		
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(ManageScoutsController.class.getResource("ManageScouts.fxml"));
+			loader.setResources(r); //This is needed to set resource bundle to FXML file
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
 
+			myStage.setScene(scene);
+			myStage.sizeToScene();
+			ManageScoutsController controller = loader.getController();
+			controller.settlc(this);
+			
+	}
+	
+	
+	public void createAndShowUpdateScoutView(Scout S) throws IOException
+	{
+		
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(UpdateScoutController.class.getResource("UpdateScout.fxml"));
+			loader.setResources(r); //This is needed to set resource bundle to FXML file
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+			myStage.setScene(scene);
+			myStage.sizeToScene();
+			UpdateScoutController controller = loader.getController();
+			controller.setTlc(this);
+			controller.setScout(S);
+			controller.initializeData();
+			
+	}
+	//-------------------------------------------------------------
+	
+	public void createAndShowUpdateTreeTypeView(TreeType tt) throws IOException
+	{
+			
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(UpdateTreeTypeController.class.getResource("UpdateTreeType.fxml"));
+			loader.setResources(r); //This is needed to set resource bundle to FXML file
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+			myStage.setScene(scene);
+			myStage.sizeToScene();
+			UpdateTreeTypeController controller = loader.getController();
+			controller.setTLC(this);
+			controller.setTreeType(tt);
+			controller.initializeData();
+			
+			
+	}
+	//-------------------------------------------------------------
+	public void createAndShowInventoryView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(manageInventoryView.class.getResource("manageInventoryFXML.fxml"));
+            loader.setResources(r); //This is needed to set resource bundle to FXML file
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            
+            myStage.setScene(scene);
+            myStage.sizeToScene();
+            
+            manageInventoryView view = loader.getController();
+            view.setTLC(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 	/*TLC METHODS
 	//------------------------------------------------------------
@@ -115,18 +204,27 @@ public class TLC implements IView,IModel
 		p.createAndShowPatronView();
 	}
 	
-	public void searchBooks(String searchEntered)
-	{
-		BookCollection bc = new BookCollection(this);
-		bc.findBooksWithTitleLike(searchEntered);
-		bc.createAndShowBookCollectionView();
-	}
 	*/
+	public void searchScouts(String fn, String ln)
+	{
+		ScoutCollection sc = new ScoutCollection(this);
+		sc.findScoutsMatchingFirstNameLastName(fn, ln);
+		sc.createAndShowView();
+		
+	}
+	
+	public void searchTreeTypes()
+	{
+		TreeTypeCollection ttc = new TreeTypeCollection(this);
+		ttc.findAllTreeTypes();
+		ttc.createAndShowView();
+	}
+
 	
 	//CREATE AND SHOW TREE LOT COORDINATOR VIEW----------------------------
 	private void createAndShowTLCView()
 	{
-		Scene currentScene = (Scene)myViews.get("TLC");
+		Scene currentScene = myViews.get("TLC");
 
 		if (currentScene == null)
 		{
@@ -165,6 +263,7 @@ public class TLC implements IView,IModel
 
 	/** Register objects to receive state updates. */
 	//----------------------------------------------------------
+	@Override
 	public void subscribe(String key, IView subscriber)
 	{
 		// DEBUG: System.out.println("Cager[" + myTableName + "].subscribe");
@@ -174,6 +273,7 @@ public class TLC implements IView,IModel
 
 	/** Unregister previously registered objects. */
 	//----------------------------------------------------------
+	@Override
 	public void unSubscribe(String key, IView subscriber)
 	{
 		// DEBUG: System.out.println("Cager.unSubscribe");
@@ -204,6 +304,7 @@ public class TLC implements IView,IModel
 		WindowPosition.placeCenter(myStage);
 
 	}
+
 
 }
 

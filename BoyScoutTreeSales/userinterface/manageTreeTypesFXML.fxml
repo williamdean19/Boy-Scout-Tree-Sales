@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="userinterface.manageTreeTypesView">
+  <children>
+    <GridPane layoutX="81.0" layoutY="68.0" prefHeight="222.0" prefWidth="438.0">
+      <children>
+        <Label text="MANAGE TREE TYPES">
+          <font>
+            <Font name="System Bold" size="28.0" />
+          </font>
+        </Label>
+        <Button id="addTree" fx:id="addTreeTypeButton" mnemonicParsing="false" onAction="#addTreeTypeButtonOnAction" text="Add a Tree Type" GridPane.rowIndex="1" />
+        <Button id="updateTree" fx:id="updateTreeTypeButton" mnemonicParsing="false" onAction="#updateTreeTypeButtonOnAction" text="Update a Tree Type" GridPane.rowIndex="2" />
+        <Button id="goBack" fx:id="BackButton" mnemonicParsing="false" onAction="#BackButtonOnAction" text="Back" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</Pane>

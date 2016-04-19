@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userinterface.updateTreeView">
+   <children>
+      <Label layoutX="187.0" layoutY="27.0" text="UPDATE A TREE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="barcodeInput" alignment="CENTER" layoutX="217.0" layoutY="77.0" maxWidth="200.0" minWidth="100.0" promptText="Barcode" />
+      <Button fx:id="getTreeInfosButton" layoutX="223.0" layoutY="118.0" mnemonicParsing="false" onAction="#getTreeInfosButtonOnAction" text="Get Tree Informations" />
+      <TextArea fx:id="notesInput" layoutX="25.0" layoutY="158.0" prefHeight="115.0" prefWidth="551.0" promptText="Notes" />
+      <GridPane layoutX="187.0" layoutY="303.0" prefHeight="27.0" prefWidth="225.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="doneButton" mnemonicParsing="false" onAction="#doneButtonOnAction" text="Done" />
+            <Button fx:id="updateTreeButton" disable="true" mnemonicParsing="false" onAction="#updateTreeButtonOnAction" text="Update Tree" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Label fx:id="statusLog" layoutX="14.0" layoutY="352.0" prefHeight="34.0" prefWidth="576.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

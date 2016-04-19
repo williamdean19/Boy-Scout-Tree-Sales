@@ -22,10 +22,7 @@
 // specify the package
 package database;
 
-/// system imports
-import java.util.Enumeration;
 import java.sql.Driver;
-import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -151,6 +148,7 @@ public class JDBCBroker
 	}
 	
 	//--------------------------------------------------------
+	@Override
 	protected void finalize()
 	{
 		if(theDBConnection != null)

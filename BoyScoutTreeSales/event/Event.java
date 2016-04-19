@@ -26,9 +26,6 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.text.DateFormat;
 
-// project imports
-import common.StringList;
-
 /** 
  * The destination class for events in the system. The current 
  * implementation displays the events in a modal popup window.
@@ -207,6 +204,7 @@ public class Event
 	  *			which can be seen by looking at the code
 	  */
 	//----------------------------------------------------------
+	@Override
 	public String toString()
 	{
 		return ("[" + myTime + "]"

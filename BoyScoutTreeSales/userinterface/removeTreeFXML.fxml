@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="198.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userinterface.removeTreeView">
+   <children>
+      <Button fx:id="doneButton" layoutX="217.0" layoutY="109.0" mnemonicParsing="false" onAction="#doneButtonOnAction" text="Done" />
+      <Button fx:id="removeTreeButton" layoutX="284.0" layoutY="109.0" mnemonicParsing="false" onAction="#removeTreeButtonOnAction" text="Remove Tree" />
+      <TextField fx:id="barcodeInput" layoutX="217.0" layoutY="69.0" promptText="Barcode" />
+      <Label fx:id="statusLog" layoutX="13.0" layoutY="149.0" prefHeight="35.0" prefWidth="574.0" />
+      <Label layoutX="168.0" layoutY="17.0" text="REMOVING A TREE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

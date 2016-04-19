@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userinterface.ManageScoutsController">
+   <children>
+      <GridPane layoutX="179.0" layoutY="155.0" prefHeight="193.0" prefWidth="457.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="removeScoutButton" mnemonicParsing="false" onAction="#CreateSearchScoutView" text="%updateRemoveScoutButton.text" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="addScoutButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#createAndShowAddScoutView" text="%addScoutButton.text" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" text="%backButton.text" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </GridPane>
+      <Text fx:id="manageScoutsTitle" layoutX="153.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%manageScoutsTitle.text" textAlignment="CENTER" wrappingWidth="251.5078125">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userinterface.addTreeView">
+   <children>
+      <TextField id="barcodeInput" fx:id="barcodeInput" layoutX="200.0" layoutY="64.0" prefHeight="25.0" prefWidth="200.0" promptText="Barcode" />
+      <TextArea id="notesInput" fx:id="notesInput" layoutX="15.0" layoutY="103.0" prefHeight="146.0" prefWidth="570.0" promptText="Notes" />
+      <Button id="addTreeButton" fx:id="addTreeButton" layoutX="302.0" layoutY="265.0" mnemonicParsing="false" onAction="#addTreeButtonOnAction" prefHeight="27.0" prefWidth="98.0" text="Add Tree" />
+      <Button layoutX="200.0" layoutY="265.0" mnemonicParsing="false" onAction="#doneButtonOnAction" prefHeight="27.0" prefWidth="98.0" text="Done" />
+      <Label fx:id="statusLog" layoutX="15.0" layoutY="309.0" prefHeight="27.0" prefWidth="570.0" />
+      <Label layoutX="189.0" layoutY="14.0" text="ADDING A TREE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

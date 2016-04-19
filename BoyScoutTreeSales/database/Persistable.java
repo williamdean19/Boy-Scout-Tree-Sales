@@ -22,8 +22,6 @@
 // specify the package
 package database;
 
-// system imports
-import java.util.Enumeration;
 import java.util.Properties;
 import java.util.Vector;
 
