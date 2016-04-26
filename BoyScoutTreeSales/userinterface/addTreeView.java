@@ -12,9 +12,15 @@ public class addTreeView {
     @FXML
     private Button addTreeButton;
     @FXML
+    private Button doneButton;
+    @FXML
     private TextField barcodeInput;
     @FXML
-    private TextArea notesInput;
+    private TextField notesInput;
+    @FXML
+    private Label barcodeLabel;
+    @FXML
+    private Label notesLabel;
     @FXML
     private Label statusLog;
     
@@ -35,6 +41,11 @@ public class addTreeView {
     
     @FXML
     private void addTreeButtonOnAction() {
+    	String barcode = barcodeInput.getText();
+    	String notes = notesInput.getText();
+    	String prefix  = barcode.substring(0, 2);
+    	System.out.println("Barcode = " + barcode);
+    	System.out.println("Prefix = " + prefix);
         
     }
     

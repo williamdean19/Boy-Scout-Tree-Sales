@@ -34,7 +34,7 @@ public class TLCView extends View
 	private Button sellTreeButton;
 	private Button manageScoutsButton;
 	private Button manageInventoryButton;
-	private Button manageShiftButton;
+	private Button openShiftButton;
 	private Button englishButton;
 	private Button frenchButton;
 	private Button doneButton;
@@ -113,7 +113,7 @@ public class TLCView extends View
 
         		     @Override
         		     public void handle(ActionEvent e) {
-        		     	//myTLC.sellTree();
+        		     	myTLC.createAndShowSellTreeView();
         		    	 
              	     }
          	});
@@ -147,15 +147,15 @@ public class TLCView extends View
          	});
     	grid.add(manageInventoryButton, 0, 2);
     	
-    	manageShiftButton = new Button(r.getString("manageShift"));
-    	manageShiftButton.setOnAction(new EventHandler<ActionEvent>() {
+    	openShiftButton = new Button(r.getString("manageShift"));
+    	openShiftButton.setOnAction(new EventHandler<ActionEvent>() {
 
         		     @Override
         		     public void handle(ActionEvent e) {
-        		     	//myLibrarian.createAndShowSearchView();   
+        		    	 myTLC.createAndShowOpenShiftView();
              	     }
          	});
-    	grid.add(manageShiftButton, 0, 3);
+    	grid.add(openShiftButton, 0, 3);
     	
     	
     	doneButton = new Button(r.getString("done"));
@@ -246,7 +246,7 @@ public class TLCView extends View
 		sellTreeButton.setText(rb.getString("sellTree"));
 		manageScoutsButton.setText(rb.getString("manageScouts"));
 		manageInventoryButton.setText(rb.getString("manageInventory"));
-		manageShiftButton.setText(rb.getString("manageShift"));
+		openShiftButton.setText(rb.getString("manageShift"));
 		doneButton.setText(rb.getString("done"));
 	}
 

@@ -1,0 +1,9 @@
+Sample Tree Barcodes for Testing
+BF0001 - Balsam Fir
+BF0002 - Balsam Fir
+CC0003 - Concolor
+CC0004 - Concolor
+DF0005 - Douglas Fir
+DF0006 - Douglas Fir
+FF0007 - Fraser Fir
+FF0008 - Fraser Fir

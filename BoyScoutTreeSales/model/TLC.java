@@ -24,6 +24,7 @@ import event.Event;
 import userinterface.AddScoutController;
 import userinterface.MainStageContainer;
 import userinterface.ManageScoutsController;
+import userinterface.OpenShiftController;
 import userinterface.UpdateScoutController;
 import userinterface.UpdateTreeTypeController;
 import userinterface.View;
@@ -31,6 +32,8 @@ import userinterface.WindowPosition;
 import userinterface.TLCView;
 import userinterface.manageInventoryView;
 import userinterface.manageTreesView;
+import userinterface.sellATreeSecondView;
+import userinterface.sellTreeView;
 
 
 /** The class containing the Tree Lot Coordinator(TLC)
@@ -189,6 +192,68 @@ public class TLC implements IView,IModel
             e.printStackTrace();
         }
     }
+	
+	//-------------------------------------------------------------
+	public void createAndShowOpenShiftView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(OpenShiftController.class.getResource("OpenShift.fxml"));
+            loader.setResources(r); //This is needed to set resource bundle to FXML file
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            
+            myStage.setScene(scene);
+            myStage.sizeToScene();
+            
+            OpenShiftController view = loader.getController();
+            view.setTLC(this);
+            view.populateComboBoxes();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+	
+	//-------------------------------------------------------------
+	public void createAndShowSellTreeView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(sellTreeView.class.getResource("sellTreeFXML.fxml"));
+            loader.setResources(r); //This is needed to set resource bundle to FXML file
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            
+            myStage.setScene(scene);
+            myStage.sizeToScene();
+            
+            sellTreeView view = loader.getController();
+            view.setTLC(this);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+	//--------------------------------------------------------------
+    public void createAndShowSecondSellATreeView(String barcode)
+    {
+	try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(sellATreeSecondView.class.getResource("sellATreeSecondFXML.fxml"));
+        loader.setResources(r); //This is needed to set resource bundle to FXML file
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        
+        myStage.setScene(scene);
+        myStage.sizeToScene();
+        
+        sellATreeSecondView view = loader.getController();
+        view.setTLC(this);
+        view.setBarcode(barcode);
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }
+
 
 	/*TLC METHODS
 	//------------------------------------------------------------

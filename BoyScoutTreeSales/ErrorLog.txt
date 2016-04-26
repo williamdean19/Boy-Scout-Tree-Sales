@@ -71,3 +71,4 @@
 [4/10/16 4:10 PM]|MainProgram|Tester2.<init>|Error|NOTAG|null<Unable to create TLC object>
 [4/10/16 4:12 PM]|MainProgram|Tester2.<init>|Error|NOTAG|null<Unable to create TLC object>
 [4/10/16 4:15 PM]|MainProgram|Tester2.<init>|Error|NOTAG|null<Unable to create TLC object>
+[4/24/16 8:13 PM]|ScoutCollection|getSelectQueryResult|Error|NOTAG|null<SQL Exception: 1146: Table 'alow1_spring16_1.Scout' doesn't exist>

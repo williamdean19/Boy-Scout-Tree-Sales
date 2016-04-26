@@ -79,6 +79,33 @@ public class ScoutCollection extends EntityBase {
 		}
 	}
 	
+	public void getAllScouts()
+	{
+		String query = "SELECT * FROM " + myTableName + "";
+
+
+		Vector <Properties>allDataRetrieved = getSelectQueryResult(query);
+
+		if (allDataRetrieved != null)
+		{
+			for (int cnt = 0; cnt < allDataRetrieved.size(); cnt++)
+			{
+				Properties nextScoutData = (Properties)allDataRetrieved.elementAt(cnt);
+
+				Scout s = new Scout(nextScoutData.getProperty("ID"));
+
+				if (s != null)
+				{
+					scoutCollection.add(s);				
+				}
+			}
+		}
+		else
+		{
+			System.out.println("No matches found in database for given name");
+		}
+	}
+	
 	public Vector getScoutCollectionVector()
 	{
 		return scoutCollection;
